@@ -1,4 +1,5 @@
-import 'package:app/cart/widgets/AppBarWidget.dart';
+// ignore: file_names
+import 'package:app/cart/widgets/MenuWidget.dart';
 import 'package:app/navbar/ItemBottomNavBar.dart';
 import 'package:clippy_flutter/arc.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,36 +7,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ItemPage extends StatelessWidget {
+  final MenuItem menuItem;
+
+  const ItemPage({super.key, required this.menuItem});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Go back to the previous screen
+          },
+        ), // Optional: display the item's name in the app bar
+        backgroundColor:
+            Colors.transparent, // Customize the app bar color if needed
+      ),
       body: Padding(
-        padding: EdgeInsets.only(top: 5),
+        padding: const EdgeInsets.only(top: 5),
         child: ListView(
           children: [
-            AppBarWidget(),
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Image.asset(
-                "images/Baby.jpg",
+                menuItem.imagePath, // Use the imagePath from the MenuItem
                 height: 300,
-                //width: double.infinity,
-                //width: 100,
               ),
             ),
             Arc(
-              edge: Edge.TOP,
               arcType: ArcType.CONVEY,
               height: 30,
               child: Container(
                 width: double.infinity,
                 color: Colors.white,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 60, bottom: 10),
+                        padding: const EdgeInsets.only(top: 60, bottom: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -45,16 +56,17 @@ class ItemPage extends StatelessWidget {
                               direction: Axis.horizontal,
                               itemCount: 5,
                               itemSize: 18,
-                              itemPadding: EdgeInsets.symmetric(horizontal: 4),
-                              itemBuilder: (context, _) => Icon(
+                              itemPadding:
+                                  const EdgeInsets.symmetric(horizontal: 4),
+                              itemBuilder: (context, _) => const Icon(
                                 Icons.star,
                                 color: Colors.red,
                               ),
                               onRatingUpdate: (index) {},
                             ),
                             Text(
-                              "P350",
-                              style: TextStyle(
+                              menuItem.price, // Use the price from the MenuItem
+                              style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -63,28 +75,25 @@ class ItemPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                          top: 20,
-                          bottom: 20,
-                        ),
+                        padding: const EdgeInsets.only(top: 20, bottom: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Baby Back Ribs",
-                              style: TextStyle(
+                              menuItem.name, // Use the name from the MenuItem
+                              style: const TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Container(
                               width: 90,
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -112,7 +121,7 @@ class ItemPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           "Lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum.",
@@ -120,7 +129,7 @@ class ItemPage extends StatelessWidget {
                           textAlign: TextAlign.justify,
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.symmetric(vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +153,7 @@ class ItemPage extends StatelessWidget {
                                 Text(
                                   "30 Minutes",
                                   style: TextStyle(
-                                      fontSize: 13,
+                                    fontSize: 13,
                                   ),
                                 ),
                               ],

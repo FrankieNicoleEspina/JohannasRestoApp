@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:app/Pages/HomePage.dart';
 import 'package:app/cart/CartPage.dart';
 import 'package:app/cart/widgets/accountinfo.dart';
@@ -7,9 +8,9 @@ import 'package:flutter/material.dart';
 
 // Assuming HomePage.dart exists and contains your home page implementation
 
-
 class DrawerWidget extends StatelessWidget {
-  
+  const DrawerWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -37,7 +38,6 @@ class DrawerWidget extends StatelessWidget {
                   fontSize: 12,
                 ),
               ),
-              
             ),
           ),
 
@@ -58,7 +58,7 @@ class DrawerWidget extends StatelessWidget {
               // Navigate to HomePage.dart on tap
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             },
           ),
@@ -79,7 +79,7 @@ class DrawerWidget extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CartPage()),
+                MaterialPageRoute(builder: (context) => const CartPage()),
               );
             },
           ),
@@ -99,7 +99,8 @@ class DrawerWidget extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfileInfoPage()),
+                MaterialPageRoute(
+                    builder: (context) => const ProfileInfoPage()),
               );
             },
           ),
@@ -119,7 +120,7 @@ class DrawerWidget extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddressPage()),
+                MaterialPageRoute(builder: (context) => const AddressPage()),
               );
             },
           ),
@@ -137,7 +138,7 @@ class DrawerWidget extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Implement onTap for Logout if needed
+              Navigator.pushReplacementNamed(context, '/');
             },
           ),
         ],

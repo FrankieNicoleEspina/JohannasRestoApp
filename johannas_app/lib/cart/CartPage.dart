@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:app/cart/widgets/AppBarWidget.dart';
 import 'package:app/navbar/CartBottomNavBar.dart';
 import 'package:app/cart/widgets/DrawerWidget.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
+  const CartPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,12 +15,12 @@ class CartPage extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppBarWidget(),
-                  Padding(
+                  const AppBarWidget(),
+                  const Padding(
                     padding: EdgeInsets.only(
                       top: 20,
                       left: 10,
@@ -32,7 +35,7 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 9),
+                    padding: const EdgeInsets.symmetric(vertical: 9),
                     child: Container(
                       width: 380,
                       height: 100,
@@ -44,7 +47,7 @@ class CartPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.5),
                             spreadRadius: 3,
                             blurRadius: 10,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                       ),
@@ -58,7 +61,7 @@ class CartPage extends StatelessWidget {
                               width: 150,
                             ),
                           ),
-                          Container(
+                          const SizedBox(
                             width: 190,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +75,7 @@ class CartPage extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  "\P350",
+                                  "P350",
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -83,14 +86,14 @@ class CartPage extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8),
+                            padding: const EdgeInsets.symmetric(vertical: 8),
                             child: Container(
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               decoration: BoxDecoration(
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Column(
+                              child: const Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -119,7 +122,7 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 9),
+                    padding: const EdgeInsets.symmetric(vertical: 9),
                     child: Container(
                       width: 380,
                       height: 100,
@@ -131,7 +134,7 @@ class CartPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.5),
                             spreadRadius: 3,
                             blurRadius: 10,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                       ),
@@ -145,7 +148,7 @@ class CartPage extends StatelessWidget {
                               width: 150,
                             ),
                           ),
-                          Container(
+                          const SizedBox(
                             width: 190,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,7 +162,7 @@ class CartPage extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  "\P165",
+                                  "P165",
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -170,14 +173,14 @@ class CartPage extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8),
+                            padding: const EdgeInsets.symmetric(vertical: 8),
                             child: Container(
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               decoration: BoxDecoration(
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Column(
+                              child: const Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
@@ -206,9 +209,10 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 30),
                     child: Container(
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -217,11 +221,11 @@ class CartPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.5),
                             spreadRadius: 3,
                             blurRadius: 10,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                       ),
-                      child: Column(
+                      child: const Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 10),
@@ -252,7 +256,7 @@ class CartPage extends StatelessWidget {
                                   style: TextStyle(fontSize: 20),
                                 ),
                                 Text(
-                                  "\P1,030",
+                                  "P1,030",
                                   style: TextStyle(fontSize: 20),
                                 ),
                               ],

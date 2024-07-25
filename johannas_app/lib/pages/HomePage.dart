@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class HomePage extends StatelessWidget {
 
           // Search Bar
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             child: Container(
               height: 50,
               decoration: BoxDecoration(
@@ -25,33 +27,33 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xFFCC4C4C).withOpacity(0.5),
+                    color: const Color(0xFFCC4C4C).withOpacity(0.5),
                     spreadRadius: 2,
                     blurRadius: 10,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
               child: Row(
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: Icon(
                       Icons.search,
                       color: Colors.red,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "What would you like?",
                         border: InputBorder.none,
                       ),
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.filter_list),
+                    icon: const Icon(Icons.filter_list),
                     onPressed: () {
                       // Implement filter action here
                     },
@@ -63,12 +65,12 @@ class HomePage extends StatelessWidget {
 
           // Categories Widget (assuming CategoriesWidget is a custom widget)
           CategoriesWidget(),
-          Divider(
+          const Divider(
             color: Color(0xFFCC4C4C),
           ),
 
           // Popular Items
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 20, left: 10),
             child: Text(
               "Popular",
@@ -83,7 +85,7 @@ class HomePage extends StatelessWidget {
           PopularItemsWidget(),
 
           // Newest Items
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 20, left: 10),
             child: Text(
               "Newest",
@@ -95,7 +97,7 @@ class HomePage extends StatelessWidget {
           ),
 
           // Newest Items Widget (assuming NewestItemsWidget is a custom widget)
-          MenuWidget(),
+          const MenuWidget(),
         ],
       ),
       // Drawer and FloatingActionButton remain unchanged from your original code
@@ -105,7 +107,7 @@ class HomePage extends StatelessWidget {
           // Navigate to cart page
           Navigator.pushNamed(context, "cartPage");
         },
-        child: Icon(
+        child: const Icon(
           Icons.shopping_cart,
           size: 28,
           color: Colors.red,

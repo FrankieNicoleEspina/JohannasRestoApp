@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app/screens/signin_screen.dart';
 import 'package:app/screens/signup_screen.dart';
-import 'package:app/theme/theme.dart';
 import 'package:app/login_pages/custom_scaffold.dart';
 import 'package:app/login_pages/welcome_button.dart';
 
@@ -28,6 +27,7 @@ class WelcomeScreen extends StatelessWidget {
                         TextSpan(
                             text: 'Welcome Back!\n',
                             style: TextStyle(
+                              color: Colors.red,
                               fontSize: 45.0,
                               fontWeight: FontWeight.w600,
                             )),
@@ -35,6 +35,7 @@ class WelcomeScreen extends StatelessWidget {
                             text:
                                 '\nEnter personal details to your employee account',
                             style: TextStyle(
+                              color: Colors.red,
                               fontSize: 20,
                               // height: 0,
                             ))
@@ -43,26 +44,26 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               )),
-          Flexible(
+          const Flexible(
             flex: 1,
             child: Align(
               alignment: Alignment.bottomRight,
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: WelcomeButton(
                       buttonText: 'Sign in',
                       onTap: SignInScreen(),
                       color: Colors.transparent,
-                      textColor: Colors.white,
+                      textColor: Colors.red,
                     ),
                   ),
                   Expanded(
                     child: WelcomeButton(
                       buttonText: 'Sign up',
-                      onTap: const SignUpScreen(),
-                      color: Colors.white,
-                      textColor: lightColorScheme.primary,
+                      onTap: SignUpScreen(),
+                      color: Colors.black,
+                      textColor: Colors.red,
                     ),
                   ),
                 ],

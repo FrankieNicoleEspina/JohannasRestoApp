@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:app/cart/widgets/addaddress.dart';
 
 class AddressPage extends StatefulWidget {
+  const AddressPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _AddressesPageState createState() => _AddressesPageState();
 }
 
 class _AddressesPageState extends State<AddressPage> {
-  List<Map<String, dynamic>> _addresses = [
+  final List<Map<String, dynamic>> _addresses = [
     {
       "number": "0975-024-1197",
       "address": "Main St",
@@ -19,11 +22,11 @@ class _AddressesPageState extends State<AddressPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Addresses"),
+        title: const Text("Addresses"),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               ..._addresses.map((address) {
@@ -32,34 +35,36 @@ class _AddressesPageState extends State<AddressPage> {
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
+                      const Row(
                         children: [
-                          Icon(Icons.location_pin, size: 20, color: Colors.blue),
+                          Icon(Icons.location_pin,
+                              size: 20, color: Colors.blue),
                           SizedBox(width: 8),
                           Text(
                             "Default Address",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "${address["number"]}",
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       Text(
                         "${address["address"]}",
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       Text(
                         "${address["zipCode"]}",
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -70,8 +75,9 @@ class _AddressesPageState extends State<AddressPage> {
                                 _addresses.remove(address);
                               });
                             },
-                            child: Text("Delete"),
-                            style: ElevatedButton.styleFrom(iconColor: Colors.red),
+                            style:
+                                ElevatedButton.styleFrom(iconColor: Colors.red),
+                            child: const Text("Delete"),
                           ),
                         ],
                       ),
@@ -79,7 +85,7 @@ class _AddressesPageState extends State<AddressPage> {
                   ),
                 );
               }),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -93,7 +99,7 @@ class _AddressesPageState extends State<AddressPage> {
                     }
                   });
                 },
-                child: Text("Add New Address"),
+                child: const Text("Add New Address"),
               ),
             ],
           ),

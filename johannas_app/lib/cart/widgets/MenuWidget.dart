@@ -1,3 +1,6 @@
+// ignore: file_names
+import 'package:app/cart/ItemPage.dart';
+import 'package:app/modelData/menuItem.dart';
 import 'package:flutter/material.dart';
 
 // Data model for menu items
@@ -11,122 +14,99 @@ class MenuItem {
 
 class MenuWidget extends StatelessWidget {
   // Define your list of menu items
-  final List<MenuItem> menuItems = [
-    MenuItem(
-      imagePath: "images/Baby.jpg",
-      name: "Baby Back Ribs",
-      price: "P350",
-    ),
-    MenuItem(
-      imagePath: "images/Baked.jpg",
-      name: "Baked Mussels",
-      price: "P50",
-    ),
-    MenuItem(
-      imagePath: "images/Seafood.jpg",
-      name: "Seafood Paella",
-      price: "P750",
-    ),
-    MenuItem(
-      imagePath: "images/Pancit.jpg",
-      name: "Pancit Canton",
-      price: "P900",
-    ),
-    MenuItem(
-      imagePath: "images/Crispy.jpg",
-      name: "Crispy Pata",
-      price: "P650",
-    ),
-    // Add more items as needed
-  ];
+  const MenuWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical, // Changed to vertical
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-          child: Column(
-            children: List.generate(
-              menuItems.length,
-              (index) => Padding(
-                padding: EdgeInsets.symmetric(vertical: 7),
-                child: Container(
-                  width: double.infinity, // Take full width of SingleChildScrollView
-                  height: 225,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 3,
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            // Navigate to item page if needed
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(5),
-                            child: Image.asset(
-                              menuItems[index].imagePath,
-                              height: 120,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          menuItems[index].name,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          " ", // Replace with description if needed
-                          style: TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                        SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              menuItems[index].price,
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Icon(
-                              Icons.favorite_border,
-                              color: Colors.red,
-                              size: 26,
-                            ),
-                          ],
-                        ),
-                      ],
+    return GridView.builder(
+      padding: const EdgeInsets.all(20),
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.75,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
+          mainAxisExtent: 275),
+      itemCount: menuItems.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ItemPage(menuItem: menuItems[index]),
+              ),
+            );
+          },
+          child: Stack(
+            children: [
+              Container(
+                width: 200, // Fixed width
+                height: 300, // Fixed height
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 7,
+                      offset: const Offset(3, 5), // changes position of shadow
                     ),
-                  ),
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Hero(
+                        tag: menuItems[index].imagePath,
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20.0),
+                              topRight: Radius.circular(20.0),
+                            ),
+                            image: DecorationImage(
+                              image: AssetImage(menuItems[index].imagePath),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
+                        menuItems[index].name,
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w900,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
+                        "${menuItems[index].price}.00",
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
+            ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

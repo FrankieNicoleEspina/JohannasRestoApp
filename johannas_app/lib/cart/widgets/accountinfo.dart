@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
 class ProfileInfoPage extends StatefulWidget {
+  const ProfileInfoPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ProfileInfoPageState createState() => _ProfileInfoPageState();
 }
 
 class _ProfileInfoPageState extends State<ProfileInfoPage> {
   // Controllers for editing profile info
   final _nameController = TextEditingController(text: "John Doe");
-  final _addressController = TextEditingController(text: "123 Main St, Anytown, USA 12345");
+  final _addressController =
+      TextEditingController(text: "123 Main St, Anytown, USA 12345");
   final _phoneNumberController = TextEditingController(text: "123-456-7890");
   final _emailController = TextEditingController(text: "johndoe@example.com");
 
@@ -16,60 +20,55 @@ class _ProfileInfoPageState extends State<ProfileInfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile Information"),
+        title: const Text("Profile Information"),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               // Name
               TextField(
                 controller: _nameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Name",
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // Address
               TextField(
                 controller: _addressController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Address",
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // Phone Number
               TextField(
                 controller: _phoneNumberController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Phone Number",
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // Email Address
               TextField(
                 controller: _emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Email Address",
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               // Save button
               ElevatedButton(
                 onPressed: () {
                   // Save profile info
-                  print("Profile info saved:");
-                  print("Name: ${_nameController.text}");
-                  print("Address: ${_addressController.text}");
-                  print("Phone Number: ${_phoneNumberController.text}");
-                  print("Email Address: ${_emailController.text}");
                 },
-                child: Text("Save"),
+                child: const Text("Save"),
               ),
             ],
           ),

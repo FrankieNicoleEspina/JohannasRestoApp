@@ -61,7 +61,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter Email';
-                          } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) {
+                          } else if (!RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value)) {
                             return 'Please enter a valid Email';
                           }
                           return null;
@@ -165,23 +167,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            if (_formSignInKey.currentState!.validate() && rememberPassword) {
-                              _formSignInKey.currentState!.save();
-                              // You can use _email and _password here
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('ProcessingData'),
-                                ),
-                              );
-                            } else if (!rememberPassword) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text(
-                                        'Please agree to the processing of personal data')),
-                              );
-                            }
+                            setState(() {
+                              Navigator.pushNamed(context, "/homePage");
+                            });
                           },
-                          child: const Text('Sign up'),
+                          child: const Text('Log In'),
                         ),
                       ),
                       const SizedBox(

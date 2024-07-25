@@ -8,6 +8,7 @@ By leveraging advanced technology, the app enhances operational efficiency and m
 # Features of the App
 
 **Log In**
+
 The log-in feature allows users to securely access their accounts using their credentials. It ensures personalized access to saved preferences, order history, and payment methods, enhancing user convenience and security.
 
 Home- The home screen serves as the central hub of the app, providing easy access to all major features. It displays promotions, featured items, and quick links to popular menu categories. Users can navigate easily to explore the menu, access their cart, and manage their account.
@@ -15,8 +16,6 @@ Home- The home screen serves as the central hub of the app, providing easy acces
 Menu - This feature offers a comprehensive view of the restaurant's menu, including detailed descriptions of each dish, ingredients, and pricing. Users can browse different categories, view specials, and make informed choices about their orders.
 
 Add to Cart - The add-to-cart feature allows users to select items from the menu and add them to their virtual shopping cart. Users can customize their orders by specifying quantities and any special instructions, ensuring a tailored dining experience.
-
-View Cart Items - Users can view and modify the contents of their cart before finalizing their order. This feature provides a summary of selected items, total cost, and options to adjust quantities or remove items. It also offers an estimated delivery time and allows users to proceed to checkout.
 
 Address - This feature enables users to save, update, and manage their delivery addresses. Users can add multiple addresses, set a default address for quicker checkouts, and ensure accurate delivery details for a seamless ordering process.
 

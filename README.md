@@ -7,8 +7,7 @@ By leveraging advanced technology, the app enhances operational efficiency and m
 
 # Features of the App
 
-**Log In**
-
+### **Log In**
 The log-in feature allows users to securely access their accounts using their credentials. It ensures personalized access to saved preferences, order history, and payment methods, enhancing user convenience and security.
 
 Home- The home screen serves as the central hub of the app, providing easy access to all major features. It displays promotions, featured items, and quick links to popular menu categories. Users can navigate easily to explore the menu, access their cart, and manage their account.
